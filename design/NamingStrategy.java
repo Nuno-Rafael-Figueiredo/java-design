@@ -6,5 +6,5 @@ package design;
  * Time: 18:06
  */
 public enum NamingStrategy {
-    asIs, uppercase, humanize
+    asIs, uppercase, clause, humanize
 }

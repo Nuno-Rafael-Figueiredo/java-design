@@ -15,11 +15,14 @@ public abstract class Base extends Observable {
 
     protected Base(NamingStrategy nameCreationType) {
         switch (nameCreationType) {
+            case clause:
+                name = Utils.codify(this).toUpperCase().replace("_", " ");
+                break;
             case uppercase:
-                name = getClass().getSimpleName().toUpperCase();
+                name = Utils.codify(this).toUpperCase();
                 break;
             case humanize:
-                name = design.Utils.humanize(this);
+                name = Utils.humanize(this);
                 break;
             default:
                 name = getClass().getSimpleName();

@@ -51,7 +51,7 @@ public abstract class Command<T> extends Context implements ICommand<T> {
     }
 
     @Override
-    public final void execute() throws CommandException {
+    public final void execute() throws NullArgumentException {
         setState(started);
         populateAttributes();
 

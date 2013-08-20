@@ -71,9 +71,15 @@ public class Utils {
         return join(camelCased.split(CAMEL_CASE_SPLITTER_REGEX), " ");
     }
 
-    public static String codify(final String camelCased) {
-        return join(camelCased.split(CAMEL_CASE_SPLITTER_REGEX), "_")
+    public static String codify(final Object o) {
+        if (o instanceof String)
+            return join(((String)o).split(CAMEL_CASE_SPLITTER_REGEX), "_")
                 .toLowerCase();
+
+        if (o instanceof Class<?>)
+            return codify(((Class)o).getSimpleName());
+
+        return codify(o.getClass());
     }
 
     private static String get(final String key) {
